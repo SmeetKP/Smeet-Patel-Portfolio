@@ -5,7 +5,7 @@ const experiences = [
     company: 'Sonova Group',
     location: 'Berlin, Germany',
     years: 'April 2023 – Present',
-    logo: 'assets/icons/ComapnyLogos/sonova.png',
+    logo: 'assets/icons/CompanyLogos/sonova.png',
     description: [
       'Led Data Innovation & BI Revamp: Overhauled BI architecture by introducing modern tools and processes, significantly improving data quality, governance, and reporting efficiency and conducting change management workshops in Berlin, Dortmund, Rotterdam, Belgium, Warsaw, Milan and Paris.',
       'Power BI & Dashboard Development Global Rollout: Designed and maintained KPI dashboards in Power BI to track key business metrics, driving a 2.1% QoQ sales increase and optimizing marketing spend across 11 countries ensuring the seamless integration with SAP Analytics Cloud. Gamification of dashboards led to 60% boost in engagement with a target audience of 1800.',
@@ -24,7 +24,7 @@ const experiences = [
     company: 'felmo GmbH',
     location: 'Berlin, Germany',
     years: 'April 2022 – March 2023',
-    logo: 'assets/icons/ComapnyLogos/felmo.png',
+    logo: 'assets/icons/CompanyLogos/felmo.png',
     description: [
       'BI & KPI Reporting: Created and maintained key performance dashboards for marketing, sales, and product teams to track customer growth and retention metrics, driving business insights.',
       'Cross-Functional Data Solutions: Collaborated with product, CRM, and marketing teams to develop RFM models and optimize customer segmentation, leading to an 11% increase in revenue.',
@@ -38,7 +38,7 @@ const experiences = [
     company: 'JP Morgan & Chase',
     location: 'Mumbai, India',
     years: 'June 2019 – March 2022',
-    logo: 'assets/icons/ComapnyLogos/jpmorgan.png',
+    logo: 'assets/icons/CompanyLogos/jpmorgan.png',
     description: [
       'Advanced Data Analytics: Performed data analysis using Adobe Analytics, Tableau, and SQL, measuring marketing model performance and customer behaviors to optimize acquisition strategies.',
       'Customer Segmentation & RFM Modeling: Led customer segmentation projects using RFM analysis, resulting in a 8% MoM increase in new retirement account acquisitions in Wealth Management.',
@@ -57,7 +57,7 @@ const experiences = [
     company: 'Accenture Ltd',
     location: 'Mumbai, India',
     years: 'May 2017 – May 2019',
-    logo: 'assets/icons/ComapnyLogos/accenture.png',
+    logo: 'assets/icons/CompanyLogos/accenture.png',
     description: [
       'Tableau Dashboard Lead: Led the design and optimization of Tableau reports for reinsurance managers, reducing load time by 35% and improving the accuracy of business KPIs.',
       'Managed a team of analysts and provided training on Tableau and data analysis techniques, enabling stakeholders to make data-driven decisions.'
@@ -68,7 +68,7 @@ const experiences = [
     company: 'Mastek Ltd',
     location: 'Mumbai, India',
     years: 'January 2015 – May 2017',
-    logo: 'assets/icons/ComapnyLogos/mastek.png',
+    logo: 'assets/icons/CompanyLogos/mastek.png',
     description: [
       'Database & ETL Development: Designed and implemented databases, ETL processes, and Tableau reports for Capita Social Services, supporting monitoring of student-related activities across UK.'
     ]
@@ -78,7 +78,7 @@ const experiences = [
     company: 'TCS Ltd',
     location: 'Mumbai, India',
     years: 'September 2011 – January 2015',
-    logo: 'assets/icons/ComapnyLogos/tcs.png',
+    logo: 'assets/icons/CompanyLogos/tcs.png',
     description: [
       'Report Development & Automation: Applied domain knowledge to develop SQL Server-based reports for Procurement & Sourcing teams, automating key reporting processes using SSRS.'
     ]
