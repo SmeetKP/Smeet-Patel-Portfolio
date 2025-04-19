@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRM & Marketing Analytics Examples</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .example-block {margin-bottom: 2em; padding: 1em; border: 1px solid #e0e0e0; border-radius: 8px; background: #fafbfc;}
+    .example-title {font-weight: bold; font-size: 1.15em; margin-bottom: 0.5em;}
+    pre {background: #23272e; color: #f8f8f2; padding: 1em; border-radius: 6px; overflow-x: auto;}
+    .back-link {margin-bottom: 2em; display: inline-block;}
+  </style>
+</head>
+<body>
+  <main class="container">
+    <a href="index.html#skills" class="back-link">&larr; Back to Skills</a>
+    <a href="crm_marketing_examples_userfriendly.ipynb" download class="download-notebook" style="display:inline-block;margin-bottom:2em;">
+      <img src="assets/icons/notebook_icon.png" alt="Notebook" style="height:22px;vertical-align:middle;margin-right:6px;">Download Jupyter Notebook (.ipynb)
+    </a>
+    <h2>Notebook Preview</h2>
+    <iframe src="crm_marketing_examples_userfriendly.html" style="width:100%;height:600px;border:1px solid #ccc;border-radius:8px;margin-bottom:2em;"></iframe>
+    <h1>CRM & Marketing Analytics: Python Examples</h1>
+
+    <div class="example-block">
+      <div class="example-title">1. Braze CRM (User Segmentation)</div>
+      <div>Segment engaged users for a campaign based on opt-in and recent activity.</div>
+      <pre><code>import pandas as pd
+users = pd.DataFrame({
+    'user_id': [1, 2, 3, 4],
+    'email_opt_in': [True, False, True, True],
+    'last_active_days': [2, 45, 10, 5]
+})
+engaged = users[(users['email_opt_in']) & (users['last_active_days'] < 30)]
+print(engaged)
+</code></pre>
+      <div><strong>Sample Output:</strong>
+        <pre><code>   user_id  email_opt_in  last_active_days
+0        1          True                 2
+2        3          True                10
+3        4          True                 5
+</code></pre>
+      </div>
+    </div>
+
+    <div class="example-block">
+      <div class="example-title">2. Customer Acquisition & Value Creation</div>
+      <div>Calculate new customer count and total value by acquisition channel.</div>
+      <pre><code>acq = pd.DataFrame({
+    'channel': ['Organic', 'Ads', 'Referral'],
+    'new_customers': [100, 150, 50],
+    'avg_order_value': [50, 40, 60]
+})
+acq['total_value'] = acq['new_customers'] * acq['avg_order_value']
+print(acq)
+</code></pre>
+      <div><strong>Sample Output:</strong>
+        <pre><code>   channel  new_customers  avg_order_value  total_value
+0  Organic            100              50         5000
+1      Ads            150              40         6000
+2  Referral            50              60         3000
+</code></pre>
+      </div>
+    </div>
+
+    <div class="example-block">
+      <div class="example-title">3. Customer Penetration</div>
+      <div>Calculate product penetration rate among your customer base.</div>
+      <pre><code>penetration = pd.DataFrame({
+    'product': ['A', 'B'],
+    'customers': [120, 80],
+    'total_customers': [200, 200]
+})
+penetration['penetration_rate'] = penetration['customers'] / penetration['total_customers']
+print(penetration)
+</code></pre>
+      <div><strong>Sample Output:</strong>
+        <pre><code>  product  customers  total_customers  penetration_rate
+0       A        120              200              0.6
+1       B         80              200              0.4
+</code></pre>
+      </div>
+    </div>
+
+    <div class="example-block">
+      <div class="example-title">4. Customer Loyalty (Repeat Purchase Rate)</div>
+      <div>Calculate the proportion of customers with repeat purchases.</div>
+      <pre><code>purchases = pd.DataFrame({
+    'customer_id': [1, 2, 3, 4, 5],
+    'repeat_purchases': [2, 0, 3, 1, 4]
+})
+loyal_customers = purchases[purchases['repeat_purchases'] > 1]
+loyalty_rate = len(loyal_customers) / len(purchases)
+print('Loyalty Rate:', loyalty_rate)
+</code></pre>
+      <div><strong>Sample Output:</strong>
+        <pre><code>Loyalty Rate: 0.6
+</code></pre>
+      </div>
+    </div>
+
+    <div class="example-block">
+      <div class="example-title">5. Churn Management (Churn Rate)</div>
+      <div>Calculate churn rate based on customer activity.</div>
+      <pre><code>churn = pd.DataFrame({
+    'customer_id': [1, 2, 3, 4, 5],
+    'is_active': [True, False, True, False, True]
+})
+churn_rate = 1 - churn['is_active'].mean()
+print('Churn Rate:', churn_rate)
+</code></pre>
+      <div><strong>Sample Output:</strong>
+        <pre><code>Churn Rate: 0.4
+</code></pre>
+      </div>
+    </div>
+
+    <div class="example-block">
+      <div class="example-title">6. CLTV (Customer Lifetime Value)</div>
+      <div>Estimate CLTV for each customer.</div>
+      <pre><code>cltv = pd.DataFrame({
+    'customer_id': [1, 2, 3],
+    'avg_purchase_value': [100, 150, 120],
+    'purchase_frequency': [2, 3, 1],
+    'avg_customer_lifespan': [5, 4, 6]
+})
+cltv['CLTV'] = cltv['avg_purchase_value'] * cltv['purchase_frequency'] * cltv['avg_customer_lifespan']
+print(cltv[['customer_id', 'CLTV']])
+</code></pre>
+      <div><strong>Sample Output:</strong>
+        <pre><code>   customer_id  CLTV
+0            1  1000
+1            2  1800
+2            3   720
+</code></pre>
+      </div>
+    </div>
+
+    <div class="example-block">
+      <div class="example-title">7. Upsell & Cross Sell Analytics (Attach Rate)</div>
+      <div>Calculate attach rate for upsell products.</div>
+      <pre><code>sales = pd.DataFrame({
+    'order_id': [1, 2, 3, 4],
+    'main_product': [True, True, True, True],
+    'upsell_product': [True, False, True, False]
+})
+attach_rate = sales['upsell_product'].mean()
+print('Upsell Attach Rate:', attach_rate)
+</code></pre>
+      <div><strong>Sample Output:</strong>
+        <pre><code>Upsell Attach Rate: 0.5
+</code></pre>
+      </div>
+    </div>
+
+    <div class="example-block">
+      <div class="example-title">8. NPS (Net Promoter Score)</div>
+      <div>Calculate NPS from survey scores.</div>
+      <pre><code>nps = pd.DataFrame({'score': [10, 9, 8, 7, 6, 5, 10, 2, 9, 8]})
+promoters = (nps['score'] >= 9).sum()
+detractors = (nps['score'] <= 6).sum()
+total = len(nps)
+nps_score = ((promoters - detractors) / total) * 100
+print('NPS Score:', nps_score)
+</code></pre>
+      <div><strong>Sample Output:</strong>
+        <pre><code>NPS Score: 20.0
+</code></pre>
+      </div>
+    </div>
+
+  </main>
+</body>
+</html>

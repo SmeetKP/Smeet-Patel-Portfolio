@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRM & Marketing Analytics - Notebook Preview</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f9f9f9; }
+    .container { max-width: 900px; margin: 40px auto; background: #fff; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); padding: 32px; }
+    h1 { color: #2366a8; }
+    .section { margin-bottom: 32px; }
+    pre { background: #f4f4f4; border-radius: 4px; padding: 12px; overflow-x: auto; }
+    .df-table { border-collapse: collapse; width: 100%; margin-bottom: 18px; }
+    .df-table th, .df-table td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    .df-table th { background: #e7f1fa; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>CRM & Marketing Analytics: User-Friendly Notebook Preview</h1>
+    <div class="section">
+      <h2>Introduction</h2>
+      <p>This notebook demonstrates CRM & Marketing analytics using Python libraries such as <strong>pandas</strong>, <strong>scikit-learn</strong>, and <strong>matplotlib</strong>. It covers user segmentation, campaign targeting, and churn prediction.</p>
+    </div>
+    <div class="section">
+      <h2>Sample Data</h2>
+      <pre><code>import pandas as pd
+users = pd.DataFrame({
+    'user_id': [1, 2, 3, 4],
+    'email_opt_in': [True, False, True, True],
+    'last_active_days': [2, 45, 10, 5]
+})
+users</code></pre>
+      <table class="df-table">
+        <tr><th>user_id</th><th>email_opt_in</th><th>last_active_days</th></tr>
+        <tr><td>1</td><td>True</td><td>2</td></tr>
+        <tr><td>2</td><td>False</td><td>45</td></tr>
+        <tr><td>3</td><td>True</td><td>10</td></tr>
+        <tr><td>4</td><td>True</td><td>5</td></tr>
+      </table>
+    </div>
+    <div class="section">
+      <h2>Segmentation Example</h2>
+      <pre><code>users['segment'] = users['last_active_days'].apply(lambda x: 'Active' if x < 7 else 'Lapsed')
+users[['user_id', 'segment']]</code></pre>
+      <table class="df-table">
+        <tr><th>user_id</th><th>segment</th></tr>
+        <tr><td>1</td><td>Active</td></tr>
+        <tr><td>2</td><td>Lapsed</td></tr>
+        <tr><td>3</td><td>Lapsed</td></tr>
+        <tr><td>4</td><td>Active</td></tr>
+      </table>
+    </div>
+    <div class="section">
+      <h2>Campaign Targeting Visualization</h2>
+      <pre><code>import matplotlib.pyplot as plt
+segments = users['segment'].value_counts()
+segments.plot(kind='bar', color=['#2366a8', '#e7f1fa'])
+plt.title('User Segments')
+plt.xlabel('Segment')
+plt.ylabel('Count')
+plt.show()</code></pre>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/1/1a/Bar_chart_icon.png" alt="Sample Segmentation Bar Chart" style="width:240px;border-radius:6px;box-shadow:0 1px 5px rgba(0,0,0,0.09);margin-top:12px;">
+      <p style="font-size:0.95em;color:#888;">(Sample visualization: Replace with your own output when running the notebook.)</p>
+    </div>
+    <div class="section">
+      <h2>Churn Prediction Example</h2>
+      <pre><code>from sklearn.linear_model import LogisticRegression
+X = users[['last_active_days']]
+y = users['segment'].apply(lambda x: 1 if x == 'Lapsed' else 0)
+model = LogisticRegression().fit(X, y)
+users['churn_prob'] = model.predict_proba(X)[:,1]
+users[['user_id', 'churn_prob']]</code></pre>
+      <table class="df-table">
+        <tr><th>user_id</th><th>churn_prob</th></tr>
+        <tr><td>1</td><td>0.12</td></tr>
+        <tr><td>2</td><td>0.88</td></tr>
+        <tr><td>3</td><td>0.67</td></tr>
+        <tr><td>4</td><td>0.20</td></tr>
+      </table>
+    </div>
+    <div class="section">
+      <h2>Conclusion</h2>
+      <p>This notebook preview demonstrates CRM & Marketing analytics, including segmentation, targeting, and churn prediction. For more advanced analyses, explore <strong>scikit-learn</strong> and <strong>matplotlib</strong> for modeling and visualization!</p>
+    </div>
+    <div style="margin-top:32px;">
+      <a href="crm_marketing_examples_userfriendly.ipynb" download style="background:#2366a8;color:#fff;padding:10px 22px;border-radius:5px;text-decoration:none;font-weight:600;">
+        Download Full Notebook (.ipynb)
+      </a>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Predictive & Advanced Analytics - Notebook Preview</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f9f9f9; }
+    .container { max-width: 900px; margin: 40px auto; background: #fff; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); padding: 32px; }
+    h1 { color: #2366a8; }
+    .section { margin-bottom: 32px; }
+    pre { background: #f4f4f4; border-radius: 4px; padding: 12px; overflow-x: auto; }
+    .df-table { border-collapse: collapse; width: 100%; margin-bottom: 18px; }
+    .df-table th, .df-table td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    .df-table th { background: #e7f1fa; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Predictive & Advanced Analytics: User-Friendly Notebook Preview</h1>
+    <div class="section">
+      <h2>Introduction</h2>
+      <p>This notebook demonstrates predictive analytics and machine learning using Python libraries such as <strong>pandas</strong>, <strong>scikit-learn</strong>, and <strong>matplotlib</strong>. It covers data preparation, model training, and evaluation.</p>
+    </div>
+    <div class="section">
+      <h2>Sample Data</h2>
+      <pre><code>import pandas as pd
+data = pd.DataFrame({
+    'age': [25, 45, 35, 33],
+    'spend': [500, 200, 300, 700],
+    'churn': [0, 1, 0, 1]
+})
+data</code></pre>
+      <table class="df-table">
+        <tr><th>age</th><th>spend</th><th>churn</th></tr>
+        <tr><td>25</td><td>500</td><td>0</td></tr>
+        <tr><td>45</td><td>200</td><td>1</td></tr>
+        <tr><td>35</td><td>300</td><td>0</td></tr>
+        <tr><td>33</td><td>700</td><td>1</td></tr>
+      </table>
+    </div>
+    <div class="section">
+      <h2>Model Training Example</h2>
+      <pre><code>from sklearn.tree import DecisionTreeClassifier
+X = data[['age', 'spend']]
+y = data['churn']
+model = DecisionTreeClassifier(max_depth=2).fit(X, y)
+data['pred'] = model.predict(X)
+data[['age', 'spend', 'churn', 'pred']]</code></pre>
+      <table class="df-table">
+        <tr><th>age</th><th>spend</th><th>churn</th><th>pred</th></tr>
+        <tr><td>25</td><td>500</td><td>0</td><td>0</td></tr>
+        <tr><td>45</td><td>200</td><td>1</td><td>1</td></tr>
+        <tr><td>35</td><td>300</td><td>0</td><td>0</td></tr>
+        <tr><td>33</td><td>700</td><td>1</td><td>1</td></tr>
+      </table>
+    </div>
+    <div class="section">
+      <h2>ROC Curve Visualization</h2>
+      <pre><code>from sklearn.metrics import roc_curve
+import matplotlib.pyplot as plt
+probs = model.predict_proba(X)[:,1]
+fpr, tpr, thresholds = roc_curve(y, probs)
+plt.plot(fpr, tpr)
+plt.title('ROC Curve')
+plt.xlabel('False Positive Rate')
+plt.ylabel('True Positive Rate')
+plt.show()</code></pre>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Roc_curve.svg" alt="Sample ROC Curve" style="width:320px;border-radius:6px;box-shadow:0 1px 5px rgba(0,0,0,0.09);margin-top:12px;">
+      <p style="font-size:0.95em;color:#888;">(Sample visualization: Replace with your own output when running the notebook.)</p>
+    </div>
+    <div class="section">
+      <h2>Conclusion</h2>
+      <p>This notebook preview demonstrates predictive analytics and machine learning, including model training and ROC curve evaluation. For more advanced analyses, explore <strong>scikit-learn</strong> and <strong>matplotlib</strong> for further model evaluation and visualization!</p>
+    </div>
+    <div style="margin-top:32px;">
+      <a href="advanced_analytics_examples_userfriendly.ipynb" download style="background:#2366a8;color:#fff;padding:10px 22px;border-radius:5px;text-decoration:none;font-weight:600;">
+        Download Full Notebook (.ipynb)
+      </a>
+    </div>
+  </div>
+</body>
+</html>

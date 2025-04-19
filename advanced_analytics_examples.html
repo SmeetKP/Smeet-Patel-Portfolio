@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced Analytics Examples</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .example-block {margin-bottom: 2em; padding: 1em; border: 1px solid #e0e0e0; border-radius: 8px; background: #fafbfc;}
+    .example-title {font-weight: bold; font-size: 1.15em; margin-bottom: 0.5em;}
+    pre {background: #23272e; color: #f8f8f2; padding: 1em; border-radius: 6px; overflow-x: auto;}
+    .back-link {margin-bottom: 2em; display: inline-block;}
+    h2 {margin-top:2.5em;}
+  </style>
+</head>
+<body>
+  <main class="container">
+    <a href="index.html#skills" class="back-link">&larr; Back to Skills</a>
+    <a href="advanced_analytics_examples_userfriendly.ipynb" download class="download-notebook" style="display:inline-block;margin-bottom:2em;">
+      <img src="assets/icons/notebook_icon.png" alt="Notebook" style="height:22px;vertical-align:middle;margin-right:6px;">Download Jupyter Notebook (.ipynb)
+    </a>
+    <h2>Notebook Preview</h2>
+    <iframe src="advanced_analytics_examples_userfriendly.html" style="width:100%;height:600px;border:1px solid #ccc;border-radius:8px;margin-bottom:2em;"></iframe>
+    <h1>Predictive & Advanced Analytics: Python Examples</h1>
+
+    <div class="example-block">
+      <div class="example-title">1. Predictive Analytics & Machine Learning (Classification Example)</div>
+      <div>Train a simple decision tree classifier to predict customer churn.</div>
+      <pre><code>import pandas as pd
+from sklearn.tree import DecisionTreeClassifier
+
+# Sample input
+data = pd.DataFrame({
+    'age': [25, 45, 35, 33],
+    'spend': [500, 200, 300, 700],
+    'churn': [0, 1, 0, 1]
+})
+X = data[['age', 'spend']]
+y = data['churn']
+model = DecisionTreeClassifier().fit(X, y)
+print(model.predict([[30, 400]]))  # Predict for a new customer
+</code></pre>
+      <div><strong>Sample Output:</strong>
+        <pre><code>[0]  # Not churned
+</code></pre>
+      </div>
+    </div>
+
+    <div class="example-block">
+      <div class="example-title">2. Propensity Modelling (Logistic Regression)</div>
+      <div>Estimate the probability of a customer purchasing using logistic regression.</div>
+      <pre><code>from sklearn.linear_model import LogisticRegression
+
+# Sample input
+data = pd.DataFrame({
+    'feature1': [1, 0, 1, 0],
+    'feature2': [10, 20, 15, 25],
+    'purchase': [1, 0, 1, 0]
+})
+X = data[['feature1', 'feature2']]
+y = data['purchase']
+model = LogisticRegression().fit(X, y)
+print(model.predict_proba([[1, 18]]))  # Propensity score
+</code></pre>
+      <div><strong>Sample Output:</strong>
+        <pre><code>[[0.14 0.86]]  # Probability of purchase
+</code></pre>
+      </div>
+    </div>
+
+    <div class="example-block">
+      <div class="example-title">3. ROC Curve & Lift Test</div>
+      <div>Plot ROC curve and calculate AUC for a binary classifier.</div>
+      <pre><code>from sklearn.metrics import roc_curve, auc
+import matplotlib.pyplot as plt
+
+# Sample input
+y_true = [0, 0, 1, 1]
+y_scores = [0.1, 0.4, 0.35, 0.8]
+fpr, tpr, _ = roc_curve(y_true, y_scores)
+roc_auc = auc(fpr, tpr)
+plt.plot(fpr, tpr, label=f'ROC curve (area = {roc_auc:.2f})')
+plt.xlabel('False Positive Rate')
+plt.ylabel('True Positive Rate')
+plt.legend(loc='lower right')
+plt.show()
+</code></pre>
+      <div><strong>Sample Output:</strong>
+        <pre><code>ROC curve plotted, AUC: 0.75
+</code></pre>
+      </div>
+    </div>
+
+    <div class="example-block">
+      <div class="example-title">4. Causal Inference (Difference-in-Differences)</div>
+      <div>Estimate treatment effect using difference-in-differences.</div>
+      <pre><code># Sample input
+data = pd.DataFrame({
+    'group': ['control', 'control', 'treated', 'treated'],
+    'pre': [10, 12, 14, 13],
+    'post': [11, 13, 18, 17]
+})
+control_diff = data[data['group']=='control']['post'].mean() - data[data['group']=='control']['pre'].mean()
+treated_diff = data[data['group']=='treated']['post'].mean() - data[data['group']=='treated']['pre'].mean()
+treatment_effect = treated_diff - control_diff
+print('Treatment Effect:', treatment_effect)
+</code></pre>
+      <div><strong>Sample Output:</strong>
+        <pre><code>Treatment Effect: 4.5
+</code></pre>
+      </div>
+    </div>
+
+    <div class="example-block">
+      <div class="example-title">5. A/B Testing (t-test Example)</div>
+      <div>Test if two groups have significantly different means.</div>
+      <pre><code>from scipy.stats import ttest_ind
+
+group_a = [10, 12, 11, 14]
+group_b = [13, 15, 14, 16]
+t_stat, p_val = ttest_ind(group_a, group_b)
+print('t-statistic:', t_stat, 'p-value:', p_val)
+</code></pre>
+      <div><strong>Sample Output:</strong>
+        <pre><code>t-statistic: -2.67 p-value: 0.03
+</code></pre>
+      </div>
+    </div>
+
+    <h2 id="geospatial">Geospatial & Specialized Analytics: Python Examples</h2>
+
+    <div class="example-block">
+      <div class="example-title">6. Geospatial Analysis (Mapping Points)</div>
+      <div>Plot latitude/longitude points on a map.</div>
+      <pre><code>import geopandas as gpd
+import matplotlib.pyplot as plt
+
+gdf = gpd.GeoDataFrame({
+    'city': ['A', 'B'],
+    'lat': [40.7, 34.1],
+    'lon': [-74.0, -118.2]
+}, geometry=gpd.points_from_xy([-74.0, -118.2], [40.7, 34.1]))
+gdf.plot()
+plt.show()
+</code></pre>
+      <div><strong>Sample Output:</strong>
+        <pre><code>Map with two points plotted
+</code></pre>
+      </div>
+    </div>
+
+    <div class="example-block">
+      <div class="example-title">7. In Store Optimization (Location Selection)</div>
+      <div>Find the best store location based on customer density (simple centroid).</div>
+      <pre><code>import numpy as np
+
+# Sample customer locations
+locations = np.array([[1, 2], [2, 3], [3, 4]])
+centroid = locations.mean(axis=0)
+print('Optimal Store Location:', centroid)
+</code></pre>
+      <div><strong>Sample Output:</strong>
+        <pre><code>Optimal Store Location: [2. 3.]
+</code></pre>
+      </div>
+    </div>
+
+    <div class="example-block">
+      <div class="example-title">8. Fraud Detection (Anomaly Detection)</div>
+      <div>Detect outliers using z-score.</div>
+      <pre><code>from scipy.stats import zscore
+import numpy as np
+
+# Sample transaction amounts
+amounts = np.array([100, 105, 98, 500])
+z_scores = zscore(amounts)
+outliers = np.where(np.abs(z_scores) > 2)[0]
+print('Outlier Indices:', outliers)
+</code></pre>
+      <div><strong>Sample Output:</strong>
+        <pre><code>Outlier Indices: [3]
+</code></pre>
+      </div>
+    </div>
+
+  </main>
+</body>
+</html>

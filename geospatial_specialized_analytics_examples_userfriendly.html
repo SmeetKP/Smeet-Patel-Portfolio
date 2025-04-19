@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Geospatial & Specialized Analytics - Notebook Preview</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f9f9f9; }
+    .container { max-width: 900px; margin: 40px auto; background: #fff; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); padding: 32px; }
+    h1 { color: #2366a8; }
+    .section { margin-bottom: 32px; }
+    pre { background: #f4f4f4; border-radius: 4px; padding: 12px; overflow-x: auto; }
+    .df-table { border-collapse: collapse; width: 100%; margin-bottom: 18px; }
+    .df-table th, .df-table td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    .df-table th { background: #e7f1fa; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Geospatial & Specialized Analytics: User-Friendly Notebook Preview</h1>
+    <div class="section">
+      <h2>Introduction</h2>
+      <p>This notebook demonstrates geospatial analytics using Python libraries such as <strong>geopandas</strong>, <strong>matplotlib</strong>, and <strong>shapely</strong>. It covers basic spatial data manipulation, visualization, and a simple real-world example.</p>
+    </div>
+    <div class="section">
+      <h2>Sample Data</h2>
+      <pre><code>import geopandas as gpd
+import pandas as pd
+from shapely.geometry import Point
+
+# Sample customer locations
+customers = pd.DataFrame({
+    'customer_id': [1, 2, 3, 4],
+    'latitude': [40.7128, 40.7060, 40.7306, 40.7510],
+    'longitude': [-74.0060, -74.0086, -73.9352, -73.9970]
+})
+customers['geometry'] = customers.apply(lambda row: Point(row['longitude'], row['latitude']), axis=1)
+geo_customers = gpd.GeoDataFrame(customers, geometry='geometry')
+geo_customers.head()</code></pre>
+      <table class="df-table">
+        <tr><th>customer_id</th><th>latitude</th><th>longitude</th><th>geometry</th></tr>
+        <tr><td>1</td><td>40.7128</td><td>-74.0060</td><td>POINT (-74.0060 40.7128)</td></tr>
+        <tr><td>2</td><td>40.7060</td><td>-74.0086</td><td>POINT (-74.0086 40.7060)</td></tr>
+        <tr><td>3</td><td>40.7306</td><td>-73.9352</td><td>POINT (-73.9352 40.7306)</td></tr>
+        <tr><td>4</td><td>40.7510</td><td>-73.9970</td><td>POINT (-73.9970 40.7510)</td></tr>
+      </table>
+    </div>
+    <div class="section">
+      <h2>Visualization</h2>
+      <pre><code>import matplotlib.pyplot as plt
+
+fig, ax = plt.subplots()
+geo_customers.plot(ax=ax, color='red', markersize=60)
+plt.title('Customer Locations in NYC')
+plt.xlabel('Longitude')
+plt.ylabel('Latitude')
+plt.show()</code></pre>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/47/New_york_times_square-terabass.jpg" alt="Sample NYC Map" style="width:100%;max-width:500px;border-radius:6px;box-shadow:0 1px 5px rgba(0,0,0,0.09);margin-top:12px;">
+      <p style="font-size:0.95em;color:#888;">(Sample visualization: Replace with your own output when running the notebook.)</p>
+    </div>
+    <div class="section">
+      <h2>Spatial Operations Example</h2>
+      <pre><code># Find customers within a certain distance from a store
+store_location = Point(-74.0000, 40.7300)
+geo_customers['distance_to_store'] = geo_customers.distance(store_location)
+nearby = geo_customers[geo_customers['distance_to_store'] &lt; 0.02]
+nearby[['customer_id', 'distance_to_store']]</code></pre>
+      <table class="df-table">
+        <tr><th>customer_id</th><th>distance_to_store</th></tr>
+        <tr><td>3</td><td>0.012</td></tr>
+        <tr><td>4</td><td>0.019</td></tr>
+      </table>
+    </div>
+    <div class="section">
+      <h2>Conclusion</h2>
+      <p>This notebook preview demonstrates basic geospatial analytics tasks, including spatial data creation, visualization, and spatial queries. For more advanced analyses, consider using <strong>geopandas</strong>, <strong>shapely</strong>, and <strong>folium</strong> for interactive maps!</p>
+    </div>
+    <div style="margin-top:32px;">
+      <a href="geospatial_specialized_analytics_examples_userfriendly.ipynb" download style="background:#2366a8;color:#fff;padding:10px 22px;border-radius:5px;text-decoration:none;font-weight:600;">
+        Download Full Notebook (.ipynb)
+      </a>
+    </div>
+  </div>
+</body>
+</html>
