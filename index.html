@@ -19,8 +19,8 @@
     </div>
     <div class="nav-links">
       <a href="#career">Key Career Highlights</a>
-      <a href="#skills">Skills</a>
       <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
     </div>
   </nav>
@@ -71,6 +71,24 @@
           <li><span class="career-emoji">🌍</span> Delivered analytics solutions in Banking, Healthcare, Retail, Digital</li>
           <li><span class="career-emoji">📊</span> Drove double-digit growth via data-driven strategies</li>
         </ul>
+      </div>
+    </section>
+    <section id="experience" class="section experience-section">
+      <div class="experience-content">
+        <h2>Experience</h2>
+        <div class="experience-grid" id="experience-grid">
+          <!-- Experience cards will be injected by JS -->
+          <div class="exp-card" tabindex="0">
+            <span class="exp-prompt">Click for more details</span>
+            <!-- Card content will be injected by JS -->
+          </div>
+        </div>
+        <div id="exp-modal" class="exp-modal" tabindex="-1" aria-modal="true" role="dialog" style="display:none;">
+          <div class="exp-modal-content">
+            <button class="exp-modal-close" aria-label="Close">&times;</button>
+            <div id="exp-modal-details"></div>
+          </div>
+        </div>
       </div>
     </section>
     <section id="skills" class="section skills-section">
@@ -148,70 +166,52 @@
             <span class="university">KIIT University, India</span>
           </div>
         </div>
-    </div>
-  </section>
-  <section id="experience" class="section experience-section">
-    <div class="experience-content">
-      <h2>Experience</h2>
-      <div class="experience-grid" id="experience-grid">
-        <!-- Experience cards will be injected by JS -->
-        <div class="exp-card" tabindex="0">
-          <span class="exp-prompt">Click for more details</span>
-          <!-- Card content will be injected by JS -->
+      </div>
+    </section>
+    <section id="contact" class="section contact-section">
+      <div class="contact-content">
+        <h2>Contact</h2>
+        <form class="contact-form" action="mailto:smeet3103@gmail.com" method="post" enctype="text/plain">
+          <input type="text" name="name" placeholder="Your Name" required>
+          <textarea name="message" placeholder="Your Message" required></textarea>
+          <button type="submit">Send</button>
+        </form>
+        <div class="contact-socials">
+          <a href="assets/resume.pdf" target="_blank" aria-label="Resume" class="social-icon" download>
+            <img src="assets/icons/resume_pdf.png" alt="Resume PDF">
+            <span class="social-tooltip">Download my Resume (PDF)</span>
+          </a>
+          <a href="https://www.linkedin.com/in/smeet-patel-a8330290/" target="_blank" aria-label="LinkedIn" class="social-icon">
+            <img src="assets/icons/Linkedin.png" alt="LinkedIn">
+            <span class="social-tooltip">Visit my LinkedIn profile</span>
+          </a>
         </div>
       </div>
-      <div id="exp-modal" class="exp-modal" tabindex="-1" aria-modal="true" role="dialog" style="display:none;">
-        <div class="exp-modal-content">
-          <button class="exp-modal-close" aria-label="Close">&times;</button>
-          <div id="exp-modal-details"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section id="contact" class="section contact-section">
-    <div class="contact-content">
-      <h2>Contact</h2>
-      <form class="contact-form" action="mailto:smeet3103@gmail.com" method="post" enctype="text/plain">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <textarea name="message" placeholder="Your Message" required></textarea>
-        <button type="submit">Send</button>
-      </form>
-      <div class="contact-socials">
-        <a href="assets/resume.pdf" target="_blank" aria-label="Resume" class="social-icon" download>
-          <img src="assets/icons/resume_pdf.png" alt="Resume PDF">
-          <span class="social-tooltip">Download my Resume (PDF)</span>
-        </a>
-        <a href="https://www.linkedin.com/in/smeet-patel-a8330290/" target="_blank" aria-label="LinkedIn" class="social-icon">
-          <img src="assets/icons/Linkedin.png" alt="LinkedIn">
-          <span class="social-tooltip">Visit my LinkedIn profile</span>
-        </a>
-      </div>
-    </div>
-  </section>
-</main>
+    </section>
+  </main>
 
-<footer class="footer">
-  <span>&copy; 2025 Smeet Patel</span>
-</footer>
+  <footer class="footer">
+    <span>&copy; 2025 Smeet Patel</span>
+  </footer>
 
-<!-- Go to Top Button -->
-<button id="goTopBtn" aria-label="Go to top" title="Back to top">↑</button>
+  <!-- Go to Top Button -->
+  <button id="goTopBtn" aria-label="Go to top" title="Back to top">↑</button>
 
-<script src="script.js"></script>
-<script src="experience.js"></script>
-<script>
-  // Go to Top Button logic
-  const goTopBtn = document.getElementById('goTopBtn');
-  window.addEventListener('scroll', function() {
-    if (window.scrollY > 200) {
-      goTopBtn.style.display = 'block';
-    } else {
-      goTopBtn.style.display = 'none';
-    }
-  });
-  goTopBtn.addEventListener('click', function() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-</script>
+  <script src="script.js"></script>
+  <script src="experience.js"></script>
+  <script>
+    // Go to Top Button logic
+    const goTopBtn = document.getElementById('goTopBtn');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 200) {
+        goTopBtn.style.display = 'block';
+      } else {
+        goTopBtn.style.display = 'none';
+      }
+    });
+    goTopBtn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
 </body>
 </html>
