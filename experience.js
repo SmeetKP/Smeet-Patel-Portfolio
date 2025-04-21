@@ -5,7 +5,7 @@ const experiences = [
     company: 'Sonova Group',
     location: 'Berlin, Germany',
     years: 'April 2023 – Present',
-    logo: 'assets/icons/CompanyLogos/sonova.png',
+    logo: 'assets/icons/CompanyLogos/Sonova.png',
     description: [
       'Led Data Innovation & BI Revamp: Overhauled BI architecture by introducing modern tools and processes, significantly improving data quality, governance, and reporting efficiency and conducting change management workshops in Berlin, Dortmund, Rotterdam, Belgium, Warsaw, Milan and Paris.',
       'Power BI & Dashboard Development Global Rollout: Designed and maintained KPI dashboards in Power BI to track key business metrics, driving a 2.1% QoQ sales increase and optimizing marketing spend across 11 countries ensuring the seamless integration with SAP Analytics Cloud. Gamification of dashboards led to 60% boost in engagement with a target audience of 1800.',
@@ -68,7 +68,7 @@ const experiences = [
     company: 'Mastek Ltd',
     location: 'Mumbai, India',
     years: 'January 2015 – May 2017',
-    logo: 'assets/icons/CompanyLogos/mastek.png',
+    logo: 'assets/icons/CompanyLogos/Mastek.png',
     description: [
       'Database & ETL Development: Designed and implemented databases, ETL processes, and Tableau reports for Capita Social Services, supporting monitoring of student-related activities across UK.'
     ]
