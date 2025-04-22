@@ -460,23 +460,36 @@ body, html {
 }
 /* Modal */
 .exp-modal {
-  position: fixed;
-  top: 0; left: 0; width: 100vw; height: 100vh;
-  background: rgba(0,0,0,0.54);
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1001;
+  background: rgba(0,0,0,0.6);
 }
 .exp-modal-content {
-  background: var(--card-bg);
-  border-radius: 13px;
-  box-shadow: 0 6px 36px rgba(34,139,230,0.19);
-  padding: 2.2rem 2.5rem 1.5rem 2.5rem;
-  min-width: 320px;
-  max-width: 520px;
   position: relative;
-  color: var(--primary-text);
+  max-height: 90vh;
+  overflow-y: auto;
+  width: 95vw;
+  max-width: 500px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 3.5rem 1rem 1rem 1rem;
+}
+.exp-modal-goback {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 1002;
 }
 .exp-modal-close {
   position: absolute;
@@ -487,16 +500,6 @@ body, html {
   font-size: 2rem;
   color: var(--accent);
   cursor: pointer;
-}
-.exp-modal-goback {
-  position: absolute;
-  left: 10px;
-  top: 10px;
-  background: none;
-  border: none;
-  font-size: 2rem;
-  cursor: pointer;
-  z-index: 1001;
 }
 /* Highlights */
 .highlights-list {
