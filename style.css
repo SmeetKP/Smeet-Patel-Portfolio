@@ -488,6 +488,16 @@ body, html {
   color: var(--accent);
   cursor: pointer;
 }
+.exp-modal-goback {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 1001;
+}
 /* Highlights */
 .highlights-list {
   list-style: none;
