@@ -134,6 +134,7 @@ function showExpModal(exp) {
   const modal = document.getElementById('exp-modal');
   const details = document.getElementById('exp-modal-details');
   details.innerHTML = `
+    <button class="exp-modal-goback" aria-label="Go back to main page" style="position:absolute;left:10px;top:10px;background:none;border:none;font-size:2rem;cursor:pointer;z-index:10;">⟵</button>
     <h2>${exp.role}</h2>
     <h3>${exp.company} <span style='font-size:1rem;font-weight:400;'>| ${exp.location}</span></h3>
     <p style='color:#228be6; font-weight:500;'>${exp.years}</p>
@@ -141,10 +142,20 @@ function showExpModal(exp) {
   `;
   modal.style.display = 'flex';
   setTimeout(() => modal.focus(), 10);
+  // Add go back button listener
+  const goBackBtn = details.querySelector('.exp-modal-goback');
+  if (goBackBtn) {
+    goBackBtn.addEventListener('click', hideExpModal);
+    goBackBtn.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') hideExpModal();
+    });
+  }
 }
+
 function hideExpModal() {
   document.getElementById('exp-modal').style.display = 'none';
 }
+
 document.addEventListener('DOMContentLoaded', () => {
   renderExperience();
   const modal = document.getElementById('exp-modal');
